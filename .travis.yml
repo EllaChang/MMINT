@@ -4,7 +4,7 @@ jdk:
  - openjdk15
 env:
  global:
-  - secure: "sMmtgFFxccY2FZ5F/ujvZ/RuqzjyFXU1vuaRxgD+pgPjJPOsTEzqRBEsCsZrFVAZAZVFBBQiLIrKugaZTpL9sFVuuxPuv3nQ5lPcDvIlNHBym4Hyk/82lGn7o315tKUUS4CvSKVwCO7Ep0x3EILLDRDxMi1Xn481eoDFs/vGYTfCRRvgh052kiIuttoDzxz7jvSfuNwOdy9G7kziuufTt07EwCqbOJozGaveEmX3fGxKMXoYu4j8SHgAydjdgvcB5YPdSWxtDgLkwvB8qj/wLvq/zHNDXyii4Ll57AopLqaT8AIpe6NbDYwGLNiMoiGKM2I3668nE5QIP6Qz6L3kEPvUAZiVCD/o4My2K68L0FTvZwuqBe9O0I/29bVc1zVdGrjddLSvHZkJfZiOpiMWmLUfCd1e2AQJmlcxJqPj/SNQsNIbsHp1Y9QR8FBxJOnfKDtETeHQ1N2u2eetl7Ibem9QLqu+JjlbRkl5M/F5+LMl+PWOEWsYqZZ07cvP3msOXTBsqGBk8Oc3ssDTPRknoIzwI3n4fCJkkXSMtuj7c/e8X0A3yeaLA+hBgzvGYWd2NES7p2XRS02cM5L/JEzHDB9vKZT0MRtPb4SDu5sX4FNR64iy2loQVNHSr5HqpWSVxR2G7VHFTBdwT1SZRhs5n33Wv+mERLN/cBuKXsFWFi0="
+  - secure: "XuiCH1ubDI0PNNryxsHTQ3/EJ3ltTuYftWin7VFmOCNdXs8r1kmSeIlEuC3kT+Lbwl7ycTvGJH5ZF6JvVWijfb/aoKuBrfn0dbOygmoHpvJwK+Ho4K4WTu9gmH+SUfVylTmySThoyECV5PHMdfQQ+dPGFxnAXAxhvFodIfMc8CZAD+TOQhlv6JA1PkmidvWyPeYF+c0G0nUEWxHlD1OU2/ZYP6KdcyMNVmg/so8xhmLUC+8+lBH1cHpIzOABpYFXUaZj34Nj7QGb8uXDbckvUP9JkUSfIW95y2/zQXjz3fbK/oNU39uMSt3K0GnnEiG23igIrTVtirJQJNMDfmZMAXkrkzQUEYDchlc83hMEiO8mxuOhwfs1lvYBKLPMIBjMhy82oYvtjjmO2gd65zYhgZMkBt2tHXMi/MuHlQcuVp/LjkOiTQ4Mi1dRN//viJgvXWAT6XtYPxi4DdVONgxzyQTlIy6Aw/xMFkC5G5ThPC6yidBa+hCFPq5UES7IOB56MmPYHlOd9kYvRKKC3xoqs5J8EqMfk896mYYTNe2obk3G114kQKQP8W0trnsMQehtW29MFB0QU28a26EV7kvTqAK/byAwBUr3I/cJbK/45hseLaIkv0VSfsOhtBCHmPZVt3Hrmrpxu+E6lWd6SG8NJ08DG5Q6/i7L2dFXGFXERuk="
 cache:
  directories:
   - $HOME/.m2
@@ -15,11 +15,11 @@ script:
 after_success:
  - >
    test $TRAVIS_PULL_REQUEST = false &&
-   git clone https://github.com/adisandro/adisandro.github.io.git &&
-   cd adisandro.github.io &&
+   git clone https://github.com/ellachang/ellachang.github.io.git &&
+   cd ellachang.github.io &&
    rm -rf mmint/${TRAVIS_BRANCH/master/release} &&
    mv $TRAVIS_BUILD_DIR/releng/edu.toronto.cs.se.mmint.install/target/repository mmint/${TRAVIS_BRANCH/master/release} &&
    git add . &&
    git reset --soft HEAD~1 &&
-   git commit --author="Alessio Di Sandro <alessio.disandro@gmail.com>" -m "mmint: Update builds" &&
-   git push -f -q https://adisandro:$GITHUB_API_KEY@github.com/adisandro/adisandro.github.io.git master &> /dev/null
+   git commit --author="Ella Chang <ellachang1002@outlook.com>" -m "mmint: Update builds" &&
+   git push -f -q https://ellachang:$MMINT@github.com/ellachang/ellachang.github.io.git master &> /dev/null
